@@ -15,15 +15,15 @@
 
   <style>
     :root{
-      --bg-start:#F8FAFC; /* slate-50 */
-      --bg-end:#F3F4F6;   /* gray-100 */
-      --ink:#0F172A;      /* slate-900 */
-      --muted:#5B6677;    /* slate-500/600 */
-      --accent:#6366F1;   /* indigo-500 */
-      --glass:rgba(255,255,255,0.35);
-      --glass-border:rgba(255,255,255,0.7);
-      --ring:rgba(99,102,241,0.35);
-      --card:rgba(255,255,255,0.65);
+      --bg-start:#E9ECF5;
+      --bg-end:#E6EAF3;
+      --ink:#0F172A;
+      --muted:#5B6677;
+      --accent:#6366F1;
+      --glass:rgba(255,255,255,0.32);
+      --glass-border:rgba(255,255,255,0.58);
+      --ring:rgba(99,102,241,0.28);
+      --card:rgba(255,255,255,0.48);
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
@@ -31,7 +31,10 @@
     body{
       font-family:'DM Sans','Avenir','Avenir Next',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;
       color:var(--ink);
-      background:linear-gradient(180deg,var(--bg-start),var(--bg-end));
+      background:
+        radial-gradient(900px 450px at 15% -10%, rgba(99,102,241,.12), transparent 60%),
+        radial-gradient(900px 450px at 85% 0%, rgba(139,92,246,.10), transparent 60%),
+        linear-gradient(180deg, var(--bg-start), var(--bg-end));
       line-height:1.6;
       -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
       overflow-x:hidden;
@@ -46,7 +49,7 @@
     nav{display:flex;align-items:center;justify-content:space-between;padding:0.9rem 0}
 
     .brand{display:flex;align-items:center;gap:.75rem}
-    .profile-photo{width:40px;height:40px;border-radius:50%;object-fit:cover;border:1px solid rgba(15,23,42,.08)}
+    .profile-photo{width:40px;height:40px;border-radius:50%;object-fit:cover;border:1px solid rgba(15,23,42,.08);background:linear-gradient(135deg,#c7cce9,#e2e8f0)}
     .name{font-weight:700;font-size:1.05rem;color:var(--ink)}
 
     /* Glass buttons in the header */
@@ -76,12 +79,14 @@
 
     /* Video card, tightened */
     .video-showcase{margin:1.25rem 0 1.75rem}
-    .video-container{position:relative;border-radius:16px;overflow:hidden;background:var(--card);backdrop-filter:blur(8px) saturate(160%);
-      padding:.5rem; box-shadow:0 10px 30px rgba(15,23,42,.06)}
+    .video-container{position:relative;border-radius:16px;overflow:hidden;background:var(--card);backdrop-filter:blur(10px) saturate(160%);-webkit-backdrop-filter:blur(10px) saturate(160%);padding:.5rem; box-shadow:0 10px 30px rgba(15,23,42,.06); aspect-ratio:16/9;}
+    .video-container video{width:100%;height:100%;object-fit:cover;border-radius:12px;display:block}
     .video-container video{width:100%;border-radius:12px;display:block}
 
     /* Two-up section: About + Featured project side-by-side on desktop to cut scroll */
-    .two-up{display:grid;grid-template-columns:1fr;gap:1rem;margin:1.75rem 0}
+    .two-up{margin:1.75rem 0}
+    .two-up .container{display:grid;grid-template-columns:1fr;gap:1rem}
+    @media(min-width:900px){.two-up .container{grid-template-columns:1fr 1fr;align-items:start}}
     @media(min-width:900px){.two-up{grid-template-columns:1fr 1fr}}
 
     .card{background:var(--card);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:16px;padding:1.25rem 1.25rem;border:1px solid rgba(255,255,255,.75);
@@ -131,7 +136,7 @@
     <div class="container">
       <nav>
         <div class="brand">
-          <img src="assets/me.png" alt="Dariya Ostrovska" class="profile-photo" />
+          <img src="./assets/me.png" alt="Dariya Ostrovska" class="profile-photo" />
           <div class="name">Dariya Ostrovska</div>
         </div>
         <ul class="nav-links">
@@ -159,9 +164,20 @@
       </div>
     </section>
 
+    <section class="video-showcase">
+      <div class="container">
+        <div class="video-container">
+          <video class="hero-video" autoplay loop muted playsinline preload="metadata">
+            <source src="media/hero.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </section>
+
     <!-- Two-up to cut scroll: About + Featured Project side-by-side on desktop -->
     <section class="two-up" id="project">
-      <div class="container" style="display:grid;grid-template-columns:1fr;gap:1rem">
+      <div class="container">
         <div class="card">
           <h2 class="section-title">About</h2>
           <p><strong>Hi, I’m Dariya.</strong> English-grad-turned-analytics engineer with a knack for translating messy stakeholder asks into clear data requirements. I work in <strong>SQL, dbt, BigQuery</strong> and visualize in <strong>Tableau</strong>.</p>
@@ -286,6 +302,14 @@
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
       a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href')); if(t){e.preventDefault(); t.scrollIntoView({behavior:'smooth',block:'start'});}})
     })
+      // If autoplay is blocked, show controls so the user can play manually
+    const vid = document.querySelector('.hero-video');
+    if (vid) {
+      const p = vid.play();
+      if (p !== undefined) {
+        p.catch(()=>{ vid.setAttribute('controls',''); });
+      }
+    }
   </script>
 </body>
 </html>
