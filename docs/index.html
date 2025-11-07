@@ -3,35 +3,49 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dariya Ostrovska — Analytics Engineer</title>
-  <meta name="description" content="Portfolio of Dariya Ostrovska — Analytics Engineer. Northwind analytics warehouse (BigQuery + dbt) and Tableau dashboards." />
+  <title>Hi — I’m Dariya</title>
+  <meta name="description" content="Dariya Ostrovska — Analytics Engineer. Northwind analytics warehouse (BigQuery + dbt) and Tableau dashboards." />
   <meta name="theme-color" content="#ffffff" />
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-
+  <!-- Dream Orphans: place file at docs/assets/fonts/Dream Orphans Bd It.otf (or DreamOrphansBdIt.otf) -->
   <style>
     :root{
-      /* Light glass palette */
-      --bg-start:#f7f9fc;
-      --bg-end:#eef2f7;
-      --ink:#0b1220;
-      --muted:#55657f;
-      --accent:#2f6df6;
-      --chip:rgba(255,255,255,.65);
-      --chip-border:rgba(255,255,255,.45);
+      /* Light liquid glass palette */
+      --bg-start:#f7f9fc;        /* page gradient start */
+      --bg-end:#eef2f7;          /* page gradient end */
+      --ink:#0B1220;             /* main text */
+      --muted:#55657F;           /* secondary text */
+      --accent:#2F6DF6;          /* brand blue */
+      --chip:rgba(255,255,255,.68);
       --card:rgba(255,255,255,.58);
       --card-border:rgba(255,255,255,.42);
       --shadow:rgba(17,24,39,.12);
-      --ring:rgba(47,109,246,.35);
+      --ring:rgba(47,109,246,.18);
+
+      /* Baby blue highlighter */
+      --hi:#D9E8FF;
+      --hi-strong:rgba(47,109,246,.18);
+    }
+
+    /* Dream Orphans for the hero greeting */
+    @font-face{
+      font-family:"Dream Orphans";
+      src:
+        url("assets/fonts/Dream%20Orphans%20Bd%20It.otf") format("opentype"),
+        url("assets/fonts/DreamOrphansBdIt.otf") format("opentype");
+      font-weight:800;
+      font-style:italic;
+      font-display:swap;
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
-    a, a:link, a:visited{color:inherit} /* kill purple visited everywhere */
+    a,a:link,a:visited{color:inherit;text-decoration:none}
 
     body{
-      font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;
+      /* Avenir Next with fallbacks */
+      font-family:"Avenir Next","Avenir","Inter","DM Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
       color:var(--ink);
       background:
         radial-gradient(900px 500px at 8% -10%, rgba(47,109,246,.08), transparent 60%),
@@ -58,7 +72,7 @@
       100%{transform:translate3d(1.5%,-1%,0) scale(1.01); opacity:.8}
     }
 
-    h1,h2,h3{font-family:'Nunito', ui-sans-serif, system-ui, sans-serif; letter-spacing:.01em}
+    h1,h2,h3{letter-spacing:.01em}
     .container{max-width:1200px;margin:0 auto;padding:0 1rem}
 
     /* Header (true glass + scroll state) */
@@ -87,11 +101,10 @@
     .name{font-weight:800;font-size:1.02rem;color:var(--ink)}
 
     .nav-links{list-style:none;display:flex;gap:.55rem;flex-wrap:wrap}
-    .nav-links a,
-    .nav-links a:visited{
-      text-decoration:none;color:#1f2b46;font-weight:800;font-size:.9rem;
+    .nav-links a,.nav-links a:visited{
+      color:#1f2b46;font-weight:800;font-size:.9rem;
       padding:.52rem .9rem;border-radius:999px;
-      background:var(--chip); border:1px solid var(--chip-border);
+      background:rgba(255,255,255,.68); border:1px solid rgba(255,255,255,.45);
       backdrop-filter:blur(10px) saturate(160%); -webkit-backdrop-filter:blur(10px) saturate(160%);
       box-shadow:inset 0 1px 0 rgba(255,255,255,.6), 0 10px 24px var(--shadow);
       transition:transform .18s cubic-bezier(.22,.61,.36,1), box-shadow .18s, border-color .18s, background .18s;
@@ -101,38 +114,44 @@
 
     /* Hero */
     .hero{padding:2rem 0 1rem;text-align:center}
-    .hero h1{font-size:2.5rem; font-weight:800}
-    .sep{font-weight:800; opacity:.45; margin:0 .25rem; font-size:.8em}  /* smaller dot */
-    .hero .subtitle{margin-top:.35rem;color:#33415c;font-size:1.06rem}
+    .hero .hello{
+      font-family:"Dream Orphans","Avenir Next",ui-sans-serif,system-ui,sans-serif;
+      font-size:2.7rem; font-weight:800;
+    }
+    .role{display:block; margin-top:.2rem; font-weight:800}
+    .sep{font-weight:800; opacity:.45; margin:0 .25rem; font-size:.8em}
+    .hero .subtitle{margin-top:.6rem;color:#33415c;font-size:1.06rem}
     .hero .tagline{margin-top:.45rem;color:var(--muted);font-size:.98rem}
 
+    /* Highlighter */
+    mark.hl,.hl{
+      background:linear-gradient(transparent 62%, var(--hi) 0) no-repeat;
+      border-radius:4px; padding:0 .03em; color:inherit;
+    }
+
     .quick-actions{margin:1rem auto 0;display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap}
+
+    /* === BUTTONS (glassy, no outlines/borders/visited) === */
     .btn,
     .btn:link,
-    .btn:visited{
-      padding:.78rem 1.05rem;border-radius:16px;text-decoration:none;font-weight:800;font-size:.92rem;border:1px solid var(--card-border);
-      display:inline-flex;align-items:center;gap:.5rem; position:relative; overflow:hidden;
-      transition:transform .18s cubic-bezier(.22,.61,.36,1), box-shadow .18s, border-color .18s, background .18s;
+    .btn:visited,
+    .btn:hover,
+    .btn:active,
+    .btn:focus,
+    .btn:focus-visible{
+      display:inline-flex;align-items:center;gap:.5rem;
+      padding:.86rem 1.12rem;border-radius:18px;font-weight:800;font-size:.92rem;
+      background:rgba(255,255,255,.68) !important;
+      color:#0B1220 !important;
+      border:0 !important;
+      outline:0 !important;
+      -webkit-appearance:none; appearance:none;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.75), 0 10px 24px var(--shadow) !important;
+      transition:transform .18s cubic-bezier(.22,.61,.36,1), box-shadow .18s, background .18s;
     }
-    /* stronger glass + sheen on hover */
-    .btn::after{
-      content:""; position:absolute; inset:0; pointer-events:none;
-      background:linear-gradient(120deg, rgba(255,255,255,.0) 30%, rgba(255,255,255,.25) 50%, rgba(255,255,255,0) 70%);
-      transform:translateX(-120%); transition:transform .5s ease;
-    }
-    .btn:hover::after{ transform:translateX(120%) }
-
-    .btn-primary,.btn-primary:link,.btn-primary:visited{
-      color:#fff !important;
-      background:linear-gradient(135deg,#5b82ff,#84a1ff);
-      box-shadow:0 14px 36px rgba(47,109,246,.28), inset 0 1px 0 rgba(255,255,255,.35);
-    }
-    .btn-primary:hover{transform:translateY(-1px)}
-    .btn-secondary,.btn-secondary:link,.btn-secondary:visited{
-      background:var(--chip); color:#0b1220 !important;
-      box-shadow:inset 0 1px 0 rgba(255,255,255,.7), 0 10px 24px var(--shadow);
-    }
-    .btn-secondary:hover{transform:translateY(-1px);border-color:var(--ring)}
+    .btn:hover{transform:translateY(-1px);box-shadow:inset 0 1px 0 rgba(255,255,255,.9), 0 16px 36px rgba(47,109,246,.18)}
+    /* keep classes for readability; both render identical glass */
+    .btn-primary,.btn-secondary{background:rgba(255,255,255,.68)!important}
 
     /* Video */
     .video-showcase{margin:1.1rem 0 1.4rem}
@@ -176,7 +195,7 @@
     .tech-grid{display:grid;grid-template-columns:1fr;gap:1rem}
     @media(min-width:900px){.tech-grid{grid-template-columns:repeat(3,1fr)}}
     .tech-card h3{font-size:1.05rem;margin:.3rem 0 .55rem;display:flex;gap:.6rem;align-items:center}
-    .tech-card svg{width:22px;height:22px;stroke:#0b1220}
+    .tech-card svg{width:22px;height:22px;stroke:#0B1220}
     .tech-card ul{list-style:none;color:#445678}
     .tech-card li{padding:.28rem 0;position:relative;padding-left:1.1rem}
     .tech-card li::before{content:"";position:absolute;left:.2rem;top:.78rem;width:6px;height:6px;border-radius:999px;background:rgba(47,109,246,.55)}
@@ -210,57 +229,7 @@
 
     /* Reduced motion */
     @media (prefers-reduced-motion: reduce) { * {animation: none !important; transition: none !important;} }
-  
-/* --- FINAL NUKE: make CTA buttons glassy across all states --- */
-a.btn:visited{ color:inherit !important; }
-
-a.btn.btn-primary,
-a.btn.btn-primary:link,
-a.btn.btn-primary:visited,
-a.btn.btn-primary:hover,
-a.btn.btn-primary:active,
-a.btn.btn-primary:focus {
-  background: var(--chip) !important;
-  background-image: none !important;   /* kill gradient */
-  color: #0b1220 !important;
-  border-color: rgba(47,109,246,.35) !important;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.7), 0 10px 24px var(--shadow) !important;
-  -webkit-appearance: none; appearance: none;
-}
-
-/* --- FINAL BUTTON OUTLINE KILL --- */
-
-/* remove the 1px border in all states */
-a.btn,
-a.btn:link,
-a.btn:visited,
-a.btn:hover,
-a.btn:active,
-a.btn:focus,
-a.btn:focus-visible {
-  border-color: transparent !important;
-}
-
-/* make both primary & secondary fully glass */
-a.btn.btn-primary,
-a.btn.btn-secondary {
-  background: var(--chip) !important;
-  background-image: none !important;
-  color: #0b1220 !important;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.7), 0 10px 24px var(--shadow) !important;
-}
-
-/* remove default focus ring (Safari/Chrome) */
-a.btn:focus,
-a.btn:focus-visible,
-a.btn:active {
-  outline: none !important;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.7), 0 10px 24px var(--shadow) !important; /* same as rest */
-}
-
-
   </style>
-
 </head>
 <body>
   <!-- sentinel for header scroll effect -->
@@ -270,9 +239,9 @@ a.btn:active {
     <div class="container">
       <nav>
         <div class="brand" id="brand">
-          <!-- Because this file lives in /docs, the correct relative path is assets/me.png -->
+          <!-- start with GitHub avatar; JS will try assets/me.png then absolute path -->
           <img id="avatar"
-               src="assets/me.png?v=1"
+               src="https://github.com/dariyao.png"
                alt="Dariya Ostrovska"
                class="profile-photo"
                width="40" height="40"
@@ -281,9 +250,9 @@ a.btn:active {
         </div>
         <ul class="nav-links">
           <li><a href="#project">Project</a></li>
-          <li><a href="#tech">Tech</a></li>
+          <li><a href="#tech">How it’s Built</a></li>
           <li><a href="#dashboards">Dashboards</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#contact">Connect</a></li>
         </ul>
       </nav>
     </div>
@@ -292,11 +261,14 @@ a.btn:active {
   <main>
     <section class="hero">
       <div class="container">
-        <h1>
-          Analytics Engineer — dbt
-          <span class="sep">·</span> BigQuery
-          <span class="sep">·</span> Tableau
-        </h1>
+        <h1 class="hello">Hi — I’m Dariya.</h1>
+        <strong class="role">
+          Analytics Engineer — 
+          <mark class="hl">SQL</mark> <span class="sep">·</span> 
+          <mark class="hl">BigQuery</mark> <span class="sep">·</span> 
+          <mark class="hl">dbt</mark> <span class="sep">·</span> 
+          <mark class="hl">Tableau</mark>
+        </strong>
         <p class="subtitle">From ambiguous asks to measurable outcomes.</p>
         <p class="tagline">I build reliable data models and crisp dashboards.</p>
 
@@ -324,16 +296,19 @@ a.btn:active {
       <div class="container">
         <div class="card">
           <h2 class="section-title">About</h2>
-          <p><strong>Hi, I’m Dariya.</strong> English-grad-turned-analytics engineer with a knack for translating messy stakeholder asks into clear data requirements. I work in <strong>SQL, dbt, BigQuery</strong> and visualize in <strong>Tableau</strong>.</p>
-          <p>Previously, I led high-stakes client deliverables as a Senior Editor/Strategy Consultant—skills I now apply to scoping, documenting, and communicating data work with precision.</p>
+          <p><strong>English-grad turned analytics engineer.</strong> I translate messy stakeholder asks into clear <mark class="hl">data requirements</mark> and deliverables. Tooling: <strong>SQL, dbt, BigQuery, Tableau</strong>.</p>
+          <p>Previously a Senior Editor/Strategy Consultant—skills I now apply to scoping, documenting, and communicating data work with precision.</p>
         </div>
         <div class="card">
           <h2 class="section-title">Featured Project — Northwind Analytics Warehouse</h2>
-          <p>I rebuilt the classic Northwind OLTP dataset into an analytics-ready warehouse and interactive dashboards.</p>
+          <p><strong>Scope:</strong> rebuilt the classic Northwind OLTP into an analytics-ready warehouse in BigQuery and built <mark class="hl">self-initiated</mark> executive dashboards in Tableau (the bootcamp did <em>not</em> include the dashboarding).</p>
           <ul style="margin-top:.5rem;color:#3a4a67; padding-left:1.1rem">
-            <li>Dimensional model (facts & dimensions) in <strong>BigQuery</strong>.</li>
-            <li>Transformations with <strong>dbt</strong> (staging → marts/OBT), plus tests & docs.</li>
-            <li>Three Tableau views: Sales Overview, Product Inventory, Customer Overview.</li>
+            <li>Modeled <mark class="hl">facts & dimensions</mark>; produced an OBT for BI.</li>
+            <li>dbt transformations with <mark class="hl">Jinja macros</mark>, documented contracts, and lineage.</li>
+            <li>Data quality: <mark class="hl">not-null/unique/relationship tests</mark>, source freshness checks.</li>
+            <li>Performance: partitioning, clustering, and <mark class="hl">incremental models</mark> where useful.</li>
+            <li>Docs site + <mark class="hl">exposures</mark> linking the Tableau dashboards to the dbt lineage.</li>
+            <li>Dashboards: Sales Overview, Product Inventory, Customer Overview.</li>
           </ul>
         </div>
       </div>
@@ -341,39 +316,42 @@ a.btn:active {
 
     <section class="tech-stack" id="tech">
       <div class="container">
-        <h2 class="section-title">How it’s built</h2>
+        <h2 class="section-title">How it’s Built</h2>
         <div class="tech-grid">
           <div class="card tech-card">
             <h3>
+              <!-- database icon -->
               <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="7" ry="3"></ellipse><path d="M5 5v6c0 1.66 3.13 3 7 3s7-1.34 7-3V5"/><path d="M5 11v6c0 1.66 3.13 3 7 3s7-1.34 7-3v-6"/></svg>
-              Warehouse
+              Warehouse (BigQuery)
             </h3>
             <ul>
-              <li><strong>BigQuery</strong> star schema tuned for analysis.</li>
-              <li>Clear separation: raw → staging → marts/OBT.</li>
-              <li>Documented models for quick onboarding.</li>
+              <li>Star schema with conformed dimensions & surrogate keys; clear naming.</li>
+              <li>Raw ➜ staging ➜ marts/OBT layers with tight separation of concerns.</li>
+              <li>Cost/perf: selective materializations, <mark class="hl">partitioning & clustering</mark>.</li>
             </ul>
           </div>
           <div class="card tech-card">
             <h3>
+              <!-- dbt wand -->
               <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l9-9"/><path d="M13 11l8-8"/><path d="M15 3h6v6"/></svg>
-              Transformations
+              Transformations (dbt)
             </h3>
             <ul>
-              <li><strong>dbt</strong> models with reusable macros.</li>
-              <li>Tests for not null, uniqueness, and relationships.</li>
-              <li>Version-controlled SQL; auto docs.</li>
+              <li>Reusable <mark class="hl">macros</mark> & CTE patterns; <mark class="hl">incremental</mark> where appropriate.</li>
+              <li>Tests: not-null, unique, relationships; <mark class="hl">source freshness</mark>; contracts.</li>
+              <li>Docs & lineage; <mark class="hl">exposures</mark> linking models to dashboards.</li>
             </ul>
           </div>
           <div class="card tech-card">
             <h3>
+              <!-- chart -->
               <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><rect x="6" y="13" width="3" height="5"/><rect x="11" y="9" width="3" height="9"/><rect x="16" y="6" width="3" height="12"/></svg>
-              Visualization
+              Visualization (Tableau)
             </h3>
             <ul>
-              <li><strong>Tableau</strong> dashboards with clear tooltips & filters.</li>
-              <li>Sales, inventory, and customer behavior views.</li>
-              <li>Consistent, accessible design system.</li>
+              <li>Clean <mark class="hl">KPI strip</mark>; interaction patterns (date picker, tooltips, filters).</li>
+              <li>Accessible color/typography; consistent layout system.</li>
+              <li>Executive-ready views for sales, inventory, and customers.</li>
             </ul>
           </div>
         </div>
@@ -389,8 +367,8 @@ a.btn:active {
               <img src="dashboard_screens/sales_overview.png" alt="Sales Overview dashboard screenshot" loading="lazy" />
             </div>
             <div class="dashboard-card-content">
-              <h3>Sales Overview</h3>
-              <p>Revenue trend, top products, regions, and an interactive date selector.</p>
+              <h3>Sales Overview — Executive Pulse</h3>
+              <p><mark class="hl">KPI strip</mark>, interactive sales trend with date picker, agent performance heatmap, and <mark class="hl">Top-10 products</mark> to spotlight growth levers.</p>
             </div>
           </div>
           <div class="card dashboard-card">
@@ -398,8 +376,8 @@ a.btn:active {
               <img src="dashboard_screens/product_inventory.png" alt="Product Inventory dashboard screenshot" loading="lazy" />
             </div>
             <div class="dashboard-card-content">
-              <h3>Product Inventory</h3>
-              <p>Stock levels, reorder signals, and product category performance.</p>
+              <h3>Product Inventory — Stock Health</h3>
+              <p><mark class="hl">KPI strip</mark>, inventory health & coverage, sales by category, and a <mark class="hl">reorder queue</mark> to prioritize replenishment.</p>
             </div>
           </div>
           <div class="card dashboard-card">
@@ -407,8 +385,8 @@ a.btn:active {
               <img src="dashboard_screens/customer_overview.png" alt="Customer Overview dashboard screenshot" loading="lazy" />
             </div>
             <div class="dashboard-card-content">
-              <h3>Customer Overview</h3>
-              <p>Customer segments, order frequency, and LTV-style purchase metrics.</p>
+              <h3>Customer Overview — Growth & Retention</h3>
+              <p><mark class="hl">KPI strip</mark>, sales by employee, <mark class="hl">order frequency</mark>, and a <mark class="hl">customer map</mark> to target outreach and expansion.</p>
             </div>
           </div>
         </div>
@@ -416,12 +394,13 @@ a.btn:active {
     </section>
 
     <section class="card" id="contact" style="margin:1.4rem auto; max-width:1100px">
-      <h2 class="section-title" style="text-align:center">Let’s connect</h2>
+      <h2 class="section-title" style="text-align:center">Let’s connect!</h2>
       <div class="quick-actions" style="margin-top:.55rem">
-        <a class="btn btn-primary" href="https://www.linkedin.com/in/dariyaostrovska" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a class="btn btn-secondary" href="assets/Dariya_Ostrovska_Resume.pdf" download>Download Resume</a>
-        <a class="btn btn-secondary" href="https://github.com/dariyao/analytics-engineering-bootcamp" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a class="btn btn-secondary" href="https://www.linkedin.com/in/dariyaostrovska" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a class="btn btn-secondary" href="https://github.com/dariyao" target="_blank" rel="noopener noreferrer">GitHub</a>
         <a class="btn btn-secondary" href="https://public.tableau.com/app/profile/dariya.ostrovska/vizzes" target="_blank" rel="noopener noreferrer">Tableau Public</a>
+        <a class="btn btn-secondary" href="assets/Dariya_Ostrovska_Resume.pdf" download>Download Resume</a>
+        <a class="btn btn-secondary" href="mailto:dariya.o@icloud.com?subject=Hi%20Dariya%20%E2%80%94%20Reaching%20out%20from%20your%20portfolio&body=Hi%20Dariya%2C%0A%0A">Email Me</a>
       </div>
     </section>
   </main>
@@ -453,21 +432,20 @@ a.btn:active {
       header.classList.toggle('scrolled', !e.isIntersecting);
     }).observe(sentinel);
 
-    // Avatar fallback: local -> GitHub avatar -> initials; hide circle if everything fails
+    // Avatar: upgrade GitHub avatar -> local file -> absolute Pages path
     (function(){
       const img=document.getElementById('avatar');
-      const brand=document.getElementById('brand');
       if(!img) return;
-      let step=0;
-      img.addEventListener('error',()=>{
-        step++;
-        if(step===1){ img.src='https://dariyao.github.io/analytics-engineering-bootcamp/assets/me.png?v=1'; return; }
-        if(step===2){ img.src='https://github.com/dariyao.png'; return; }
-        // final: monogram
-        const svg=encodeURIComponent("<svg xmlns='http://www.w3.org/2000/svg' width='80' height='80'><rect width='100%' height='100%' rx='40' fill='#dfe6f3'/><text x='50%' y='52%' font-family='Nunito, sans-serif' font-weight='800' font-size='28' fill='#0b1220' text-anchor='middle' dominant-baseline='middle'>DO</text></svg>");
-        img.src='data:image/svg+xml;charset=utf-8,'+svg;
-        // if even that fails, hide avatar
-        setTimeout(()=>{ if(!img.complete || img.naturalWidth===0){ brand.classList.add('hide-avatar'); }},400);
+      const trySwap=(url,next)=>{
+        const probe=new Image();
+        probe.onload=()=>{ img.src=url; };
+        probe.onerror=()=>{ if(next) next(); };
+        probe.src=url+(url.includes('?')?'&':'?')+'v='+Date.now();
+      };
+      trySwap('assets/me.png',()=>{
+        trySwap('https://dariyao.github.io/analytics-engineering-bootcamp/assets/me.png',()=>{
+          // leave GitHub avatar
+        });
       });
     })();
 
