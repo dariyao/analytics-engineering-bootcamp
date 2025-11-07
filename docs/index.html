@@ -228,6 +228,37 @@ a.btn.btn-primary:focus {
   -webkit-appearance: none; appearance: none;
 }
 
+/* --- FINAL BUTTON OUTLINE KILL --- */
+
+/* remove the 1px border in all states */
+a.btn,
+a.btn:link,
+a.btn:visited,
+a.btn:hover,
+a.btn:active,
+a.btn:focus,
+a.btn:focus-visible {
+  border-color: transparent !important;
+}
+
+/* make both primary & secondary fully glass */
+a.btn.btn-primary,
+a.btn.btn-secondary {
+  background: var(--chip) !important;
+  background-image: none !important;
+  color: #0b1220 !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.7), 0 10px 24px var(--shadow) !important;
+}
+
+/* remove default focus ring (Safari/Chrome) */
+a.btn:focus,
+a.btn:focus-visible,
+a.btn:active {
+  outline: none !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.7), 0 10px 24px var(--shadow) !important; /* same as rest */
+}
+
+
   </style>
 
 </head>
