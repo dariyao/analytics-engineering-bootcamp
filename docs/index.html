@@ -11,6 +11,13 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
+    /* Embed your custom display font (place file at docs/assets/fonts/Gathenia.otf) */
+    @font-face{
+      font-family:"Gathenia";
+      src:url("assets/fonts/Gathenia.otf") format("opentype");
+      font-weight:400; font-style:normal; font-display:swap;
+    }
+
     :root{
       /* Dark glass palette */
       --bg-start:#0B1220;
@@ -38,15 +45,36 @@
       line-height:1.65;
       -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
       overflow-x:hidden;
+      position:relative;
     }
-    h1,h2,h3{font-family:'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif; letter-spacing:-0.015em}
+
+    /* Floating aurora layer (animated, super subtle) */
+    body::before{
+      content:"";
+      position:fixed; inset:-20% -10%;
+      z-index:-1; pointer-events:none;
+      background:
+        radial-gradient(40% 35% at 15% 20%, rgba(124,135,255,.25), transparent 60%),
+        radial-gradient(35% 30% at 85% 15%, rgba(236,72,153,.18), transparent 60%),
+        radial-gradient(30% 25% at 50% 80%, rgba(34,211,238,.14), transparent 60%);
+      filter:blur(60px);
+      opacity:.45;
+      animation:aurora 18s ease-in-out infinite alternate;
+    }
+    @keyframes aurora{
+      0%   { transform:translate3d(0,0,0) scale(1); opacity:.42; }
+      50%  { transform:translate3d(-2%,1%,0) scale(1.03); opacity:.5; }
+      100% { transform:translate3d(2%,-1%,0) scale(1.02); opacity:.44; }
+    }
+
+    h2,h3{font-family:'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif; letter-spacing:-0.015em}
     .container{max-width:1320px;margin:0 auto;padding:0 1rem}
 
     /* Header */
     header{
       position:sticky; top:0; z-index:40;
       background:rgba(14,18,28,.45);
-      backdrop-filter:blur(18px) saturate(160%); -webkit-backdrop-filter:blur(18px) saturate(160%);
+      backdrop-filter:blur(20px) saturate(170%); -webkit-backdrop-filter:blur(20px) saturate(170%);
       border-bottom:none;
       box-shadow:0 18px 50px var(--shadow);
     }
@@ -72,12 +100,15 @@
 
     /* Hero */
     .hero{padding:2.2rem 0 1.1rem;text-align:center}
-    .hero h1{font-size:2.35rem;font-weight:800}
-    .hero .subtitle{margin-top:.4rem;color:#CFD6E4;font-size:1.05rem}
+    .hero h1{
+      font-family:"Gathenia", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+      font-size:3rem; font-weight:600; letter-spacing:.02em;
+    }
+    .hero .subtitle{margin-top:.35rem;color:#CFD6E4;font-size:1.06rem}
     .hero .tagline{margin-top:.5rem;color:var(--muted);font-size:.98rem}
 
     .quick-actions{margin:1.1rem auto 0;display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap}
-    .btn{padding:.75rem 1.1rem;border-radius:12px;text-decoration:none;font-weight:700;font-size:.92rem;border:1px solid var(--card-border);display:inline-flex;align-items:center;gap:.5rem}
+    .btn{padding:.78rem 1.1rem;border-radius:12px;text-decoration:none;font-weight:700;font-size:.92rem;border:1px solid var(--card-border);display:inline-flex;align-items:center;gap:.5rem}
     .btn-primary{background:linear-gradient(135deg,#6E78FF,#9B6BFF);color:#fff;box-shadow:0 14px 36px rgba(124,135,255,.35)}
     .btn-primary:hover{transform:translateY(-1px)}
     .btn-secondary{background:var(--chip);color:#E5EAF4}
@@ -103,6 +134,7 @@
       border-radius:16px; padding:1.15rem 1.15rem;
       border:1px solid var(--card-border);
       box-shadow:0 22px 60px var(--shadow);
+      animation:float-in .55s cubic-bezier(.22,.61,.36,1) both;
     }
     .section-title{font-size:1.42rem;font-weight:800;margin-bottom:.55rem}
     .card p{color:#C9D2E3}
@@ -122,16 +154,15 @@
     .dashboard-grid{display:grid;grid-template-columns:1fr;gap:1rem}
     @media(min-width:900px){.dashboard-grid{grid-template-columns:repeat(3,1fr)}}
     .dashboard-card{overflow:hidden}
+
     /* Transparent background — show full screenshot with rounded corners */
     .thumb{
       height:220px; background:transparent;
-      display:flex; align-items:center; justify-content:center;
-      padding:.25rem;
+      display:flex; align-items:center; justify-content:center; padding:.25rem;
     }
     .thumb img{
       max-width:100%; max-height:100%;
-      width:auto; height:auto;
-      display:block; object-fit:contain;
+      width:auto; height:auto; display:block; object-fit:contain;
       border-radius:12px;
       box-shadow:0 18px 40px var(--shadow), inset 0 1px 0 rgba(255,255,255,.04);
     }
@@ -144,7 +175,6 @@
 
     /* Motion */
     @keyframes float-in{from{opacity:0;transform:translateY(10px) scale(.995)}to{opacity:1;transform:translateY(0) scale(1)}}
-    .card,.tech-card,.dashboard-card{animation:float-in .55s cubic-bezier(.22,.61,.36,1) both}
     .card:hover,.tech-card:hover,.dashboard-card:hover{transform:translateY(-3px);transition:transform .25s cubic-bezier(.22,.61,.36,1)}
     .nav-links a{transition:transform .18s cubic-bezier(.22,.61,.36,1), box-shadow .18s, border-color .18s}
     .nav-links a:hover{transform:translateY(-1px)}
@@ -158,14 +188,12 @@
     <div class="container">
       <nav>
         <div class="brand">
-          <!-- Single <img> (no <picture>) to avoid source-type fallback bugs -->
-          <img
-            src="assets/me.png?cb=5"
-            alt="Dariya Ostrovska"
-            class="profile-photo"
-            width="40" height="40"
-            decoding="async" loading="eager"
-          />
+          <img id="avatar"
+               src="docs/assets/me.png?cb=7"
+               alt="Dariya Ostrovska"
+               class="profile-photo"
+               width="40" height="40"
+               decoding="async" loading="eager" />
           <div class="name">Dariya Ostrovska</div>
         </div>
         <ul class="nav-links">
@@ -333,6 +361,21 @@
         if(t){e.preventDefault(); t.scrollIntoView({behavior:'smooth',block:'start'});}
       })
     });
+
+    // Avatar fallback chain: relative -> absolute -> inline SVG initials
+    (function(){
+      const img=document.getElementById('avatar');
+      if(!img) return;
+      img.addEventListener('error',()=>{
+        if(!img.dataset.triedAbs){
+          img.dataset.triedAbs='1';
+          img.src='https://dariyao.github.io/analytics-engineering-bootcamp/docs/assets/me.png?cb=7';
+          return;
+        }
+        const svg=encodeURIComponent("<svg xmlns='http://www.w3.org/2000/svg' width='80' height='80'><rect width='100%' height='100%' fill='#1b2233'/><text x='50%' y='52%' font-family='Plus Jakarta Sans, sans-serif' font-size='30' fill='#E6EAF2' text-anchor='middle' dominant-baseline='middle'>DO</text></svg>");
+        img.src='data:image/svg+xml;charset=utf-8,'+svg;
+      });
+    })();
 
     // If autoplay is blocked, show controls
     const vid=document.querySelector('.hero-video');
