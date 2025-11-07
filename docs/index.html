@@ -210,7 +210,26 @@
 
     /* Reduced motion */
     @media (prefers-reduced-motion: reduce) { * {animation: none !important; transition: none !important;} }
+  
+/* --- FINAL NUKE: make CTA buttons glassy across all states --- */
+a.btn:visited{ color:inherit !important; }
+
+a.btn.btn-primary,
+a.btn.btn-primary:link,
+a.btn.btn-primary:visited,
+a.btn.btn-primary:hover,
+a.btn.btn-primary:active,
+a.btn.btn-primary:focus {
+  background: var(--chip) !important;
+  background-image: none !important;   /* kill gradient */
+  color: #0b1220 !important;
+  border-color: rgba(47,109,246,.35) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.7), 0 10px 24px var(--shadow) !important;
+  -webkit-appearance: none; appearance: none;
+}
+
   </style>
+
 </head>
 <body>
   <!-- sentinel for header scroll effect -->
