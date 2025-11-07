@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Northwind Analytics Engineering Project</title>
+  <style>
+    :root {
+      --bg: #0b1220;
+      --card: #0f172a;
+      --text: #e6e8ee;
+      --muted: #aab2c5;
+      --accent: #6dd3fb;
+      --accent2: #f9a8d4;
+      --radius: 16px;
+      --maxw: 980px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin:0; padding:40px 16px; color:var(--text);
+      font: 16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Ubuntu,"Helvetica Neue",Arial,sans-serif;
+      background: radial-gradient(1200px 600px at 10% -10%, #1a2a5a 0, transparent 50%),
+                  radial-gradient(1200px 600px at 90% 110%, #5a1a3a 0, transparent 55%),
+                  var(--bg);
+    }
+    .wrap { max-width: var(--maxw); margin:0 auto; }
+    header h1 { font-size: 28px; margin: 0 0 8px; letter-spacing:.2px;}
+    header p { color: var(--muted); margin:0 0 24px; }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius);
+      box-shadow: 0 12px 30px rgba(0,0,0,.25);
+      padding: 14px;
+      margin: 18px 0 28px;
+    }
+    .media { border-radius: calc(var(--radius) - 4px); width:100%; height:auto; display:block; }
+    .row { display:flex; flex-wrap:wrap; gap:12px; margin: 8px 0 0; }
+    .btn {
+      display:inline-block; padding:10px 14px; border-radius:10px; text-decoration:none; color:#0b1220;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      font-weight:600;
+    }
+    .btn.ghost {
+      background: transparent; color: var(--text);
+      border: 1px solid rgba(255,255,255,.25);
+    }
+    .grid {
+      display:grid; gap:12px; 
+      grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+      margin-top: 16px;
+    }
+    .tile {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 12px; padding:14px;
+    }
+    .tile h3 { margin:0 0 6px; font-size:16px; }
+    .links a { color: var(--accent); text-decoration:none; }
+    .links a + a { margin-left:10px; }
+    footer { color: var(--muted); font-size: 14px; margin-top: 28px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Northwind Analytics Engineering Project</h1>
+      <p>BigQuery + dbt → OBT → Tableau • Sales · Inventory · Customers</p>
+    </header>
+
+    <div class="card">
+      <!-- Prefer MP4 for crispness; GIF will be used as fallback if MP4 fails -->
+      <video class="media" src="./media/hero.mp4" autoplay muted loop playsinline poster="./dashboard_screens/product_inventory.png"></video>
+    </div>
+
+    <div class="row">
+      <a class="btn" href="https://public.tableau.com/views/NorthwindDashboard_17624363038290/Overview" target="_blank" rel="noopener">Open Live Dashboard</a>
+      <a class="btn ghost" href="./Executive_Summary.md">Executive Summary</a>
+      <a class="btn ghost" href="./media/hero.mp4">Download 9-sec MP4</a>
+    </div>
+
+    <div class="grid">
+      <div class="tile">
+        <h3>Screenshots</h3>
+        <div class="links">
+          <a href="./dashboard_screens/sales_overview.png">Sales Overview</a>
+          <a href="./dashboard_screens/product_inventory.png">Product Inventory</a>
+          <a href="./dashboard_screens/customer_overview.png">Customer Overview</a>
+        </div>
+      </div>
+      <div class="tile">
+        <h3>References</h3>
