@@ -112,8 +112,6 @@
 
     /* Hero */
     .hero{padding:2rem 0 1rem;text-align:center}
-
-    /* ONLY this line uses Apple Garamond Italic — slightly bigger */
     .hero .hello{
       font-family:"Apple Garamond","Garamond","EB Garamond","Avenir Next",serif !important;
       font-style:italic;
@@ -122,8 +120,6 @@
       line-height:1.12;
       letter-spacing:.01em;
     }
-
-    /* Everything else is Avenir Next (normal weights) */
     .role{
       font-weight:600;
       letter-spacing:.02em;
@@ -132,9 +128,7 @@
       display:block;
     }
     .sep{font-weight:700; opacity:.45; margin:0 .25rem; font-size:.8em}
-
     .hero .subtitle{margin-top:.6rem;color:#33415c;font-size:1.06rem;font-weight:400}
-    .hero .tagline{margin-top:.45rem;color:var(--muted);font-size:.98rem;font-weight:400}
 
     /* Highlighter */
     mark.hl,.hl{
@@ -144,7 +138,7 @@
 
     .quick-actions{margin:1rem auto 0;display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap}
 
-    /* Buttons — glassy, no outlines/borders/visited */
+    /* Buttons */
     .btn,
     .btn:link,
     .btn:visited,
@@ -180,10 +174,10 @@
     }
     .video-container video{width:100%;height:auto;object-fit:contain;border-radius:14px;display:block;background:transparent}
 
-    /* Project section (replaces the old two-up layout) */
+    /* Project section (two-column layout) */
     .project{margin:1.4rem 0}
     .project .container{display:grid;grid-template-columns:1fr;gap:1rem}
-    @media(min-width:900px){.project .container{grid-template-columns:1.4fr 1fr}}
+    @media(min-width:900px){.project .container{grid-template-columns:1fr 1.4fr}} /* Project narrower, Exec Summary wider */
 
     .card{
       background:var(--card);
@@ -205,6 +199,11 @@
     .chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.4rem}
     .chip{font-weight:700;font-size:.82rem;padding:.35rem .6rem;border-radius:999px;background:rgba(255,255,255,.68);border:1px solid rgba(255,255,255,.45)}
 
+    /* Exec Summary spacing */
+    .exec p{margin:.6rem 0}
+    .exec ul{margin:.35rem 0 .1rem 1.1rem; color:#3a4a67}
+    .star-section{margin-top:.85rem} /* extra spacing before each Situation/Task/Action/Result line */
+
     /* Tech */
     .tech-stack{margin:1.4rem 0}
     .tech-grid{display:grid;grid-template-columns:1fr;gap:1rem}
@@ -220,7 +219,6 @@
     .dashboard-grid{display:grid;grid-template-columns:1fr;gap:1rem}
     @media(min-width:900px){.dashboard-grid{grid-template-columns:repeat(3,1fr)}}
     .dashboard-card{overflow:hidden}
-
     .thumb{
       height:220px; background:transparent;
       display:flex; align-items:center; justify-content:center; padding:.25rem;
@@ -233,6 +231,9 @@
     }
     .dashboard-card h3{font-size:1.0rem;margin:.55rem 0 .3rem;font-weight:700}
     .dashboard-card p{color:#445678;font-size:.95rem}
+
+    /* About + Contact */
+    .about, .contact{margin:1.4rem 0}
 
     footer{padding:1.2rem 0;text-align:center;color:#5a6a86}
     .social-links{display:flex;gap:1rem;justify-content:center;margin-top:.45rem}
@@ -266,6 +267,7 @@
           <li><a href="#project">Project</a></li>
           <li><a href="#tech">How it’s Built</a></li>
           <li><a href="#dashboards">Dashboards</a></li>
+          <li><a href="#about">About</a></li>
           <li><a href="#contact">Connect</a></li>
         </ul>
       </nav>
@@ -284,11 +286,10 @@
           <mark class="hl">Tableau</mark>
         </strong>
         <p class="subtitle">From ambiguous asks to measurable outcomes.</p>
-        <p class="tagline">I build reliable data models and crisp dashboards.</p>
 
         <div class="quick-actions">
           <a class="btn btn-primary" href="https://public.tableau.com/app/profile/dariya.ostrovska/vizzes" target="_blank" rel="noopener noreferrer">View Tableau</a>
-          <a class="btn btn-secondary" href="https://github.com/dariyao/analytics-engineering-bootcamp#technical-deep-dive" target="_blank" rel="noopener noreferrer">Code &amp; Technical Deep Dive</a>
+          <a class="btn btn-secondary" href="https://github.com/dariyao/analytics-engineering-bootcamp" target="_blank" rel="noopener noreferrer">View Code</a>
           <a class="btn btn-secondary" href="assets/Dariya_Ostrovska_Resume.pdf" download>Download Resume</a>
         </div>
       </div>
@@ -308,7 +309,7 @@
     <!-- Project front and center -->
     <section class="project" id="project">
       <div class="container">
-        <!-- Featured project -->
+        <!-- Project (narrower) -->
         <div class="card">
           <h2 class="section-title">End-to-End Analytics Engineering Project</h2>
           <p class="meta"><em>Building a Scalable Dimensional Data Warehouse for Northwind Traders</em></p>
@@ -341,16 +342,16 @@
           <p class="meta" style="margin-top:.9rem">All technical assets (ERD, Bus Matrix, tests, materializations) are linked directly in the repository README.</p>
         </div>
 
-        <!-- Executive Summary (STAR) -->
-        <div class="card">
+        <!-- Executive Summary (wider) -->
+        <div class="card exec">
           <h2 class="section-title">Executive Summary</h2>
 
-          <p><strong>Situation.</strong> Northwind Traders relied on a legacy on-prem MySQL database for both transactions and reporting, causing performance bottlenecks, slow reports, and limited scalability.</p>
+          <p class="star-section"><strong>Situation:</strong> Northwind Traders relied on a legacy on-prem MySQL database for both transactions and reporting, causing performance bottlenecks, slow reports, and limited scalability.</p>
 
-          <p style="margin-top:.45rem"><strong>Task.</strong> Modernize the data stack on Google Cloud and deliver an end-to-end dimensional warehouse that reduces OLTP load, accelerates reporting, and enables self-service analytics.</p>
+          <p class="star-section"><strong>Task:</strong> Modernize the data stack on Google Cloud and deliver an end-to-end dimensional warehouse that reduces OLTP load, accelerates reporting, and enables self-service analytics.</p>
 
-          <p style="margin-top:.45rem"><strong>Action.</strong></p>
-          <ul style="margin-top:.2rem;color:#3a4a67; padding-left:1.1rem">
+          <p class="star-section"><strong>Action:</strong></p>
+          <ul>
             <li><strong>Requirements:</strong> Identified 4 core processes (Sales Overview, Sales Agent Tracking, Product Inventory, Customer Reporting); profiled data for quality gaps.</li>
             <li><strong>Dimensional modelling:</strong> Kimball bus matrix, clearly declared grains; 4 conformed dimensions (customer, employee, product, date) and 3 fact tables (sales, inventory, purchase_order).</li>
             <li><strong>Architecture:</strong> Data Lake → Staging → <strong>Dimensional DWH</strong> → <strong>OBT</strong> in BigQuery; transformations orchestrated with dbt.</li>
@@ -359,7 +360,7 @@
             <li><strong>Visualization:</strong> Designed and built 3 interactive Tableau dashboards (<em>self-initiated</em>, not part of the bootcamp curriculum).</li>
           </ul>
 
-          <p style="margin-top:.45rem"><strong>Result.</strong> A production-ready warehouse with clean dimensional models, automated dbt transformations, and executive-friendly dashboards—empowering stakeholders to analyze sales performance, monitor inventory health, and understand customer behaviour while removing strain from transactional systems.</p>
+          <p class="star-section"><strong>Result:</strong> A production-ready warehouse with clean dimensional models, automated dbt transformations, and executive-friendly dashboards—empowering stakeholders to analyze sales performance, monitor inventory health, and understand customer behaviour while removing strain from transactional systems.</p>
         </div>
       </div>
     </section>
@@ -440,15 +441,20 @@
       </div>
     </section>
 
-    <!-- About moved to live with Contact -->
-    <section id="contact" style="margin:1.4rem 0">
-      <div class="container" style="display:grid;grid-template-columns:1fr;gap:1rem;max-width:1100px">
+    <!-- About (own section, same width as others) -->
+    <section class="about" id="about">
+      <div class="container">
         <div class="card">
-          <h2 class="section-title" style="text-align:left">About</h2>
+          <h2 class="section-title">About</h2>
           <p><strong>English-grad turned analytics engineer.</strong> I translate messy stakeholder asks into clear <mark class="hl">data requirements</mark> and deliverables. Tooling: <strong>SQL, dbt, BigQuery, Tableau</strong>.</p>
           <p style="margin-top:.4rem">Previously a Senior Editor/Strategy Consultant—skills I now apply to scoping, documenting, and communicating data work with precision.</p>
         </div>
+      </div>
+    </section>
 
+    <!-- Contact (separate section, consistent width) -->
+    <section class="contact" id="contact">
+      <div class="container">
         <div class="card">
           <h2 class="section-title" style="text-align:center">Let’s connect!</h2>
           <div class="quick-actions" style="margin-top:.55rem">
