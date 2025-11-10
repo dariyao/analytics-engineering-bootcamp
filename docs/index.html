@@ -7,9 +7,12 @@
   <meta name="description" content="Dariya Ostrovska — Analytics Engineer. Northwind analytics warehouse (BigQuery + dbt) and Tableau dashboards." />
   <meta name="theme-color" content="#ffffff" />
 
+  <!-- Favicon (uses your headshot); replace with assets/favicon.png if you prefer -->
+  <link rel="icon" type="image/png" href="assets/me.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="assets/me.png" />
+
   <style>
     :root{
-      /* Light liquid glass palette */
       --bg-start:#f7f9fc;
       --bg-end:#eef2f7;
       --ink:#0B1220;
@@ -20,12 +23,9 @@
       --card-border:rgba(255,255,255,.42);
       --shadow:rgba(17,24,39,.12);
       --ring:rgba(47,109,246,.18);
-
-      /* Baby-blue highlighter */
       --hi:#D9E8FF;
     }
 
-    /* Apple Garamond Italic — place file(s) at docs/assets/fonts/ */
     @font-face{
       font-family:"Apple Garamond";
       src:
@@ -41,7 +41,6 @@
     html{scroll-behavior:smooth}
     a,a:link,a:visited{color:inherit;text-decoration:none}
 
-    /* Avenir Next everywhere by default */
     body{
       font-family:"Avenir Next","Avenir","Inter","DM Sans",-apple-system,BlinkMacSystemFont,
                    "Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
@@ -55,10 +54,8 @@
       overflow-x:hidden; position:relative;
     }
 
-    /* Ambient motion */
     body::before{
-      content:"";
-      position:fixed; inset:-20% -10%; z-index:-1; pointer-events:none;
+      content:""; position:fixed; inset:-20% -10%; z-index:-1; pointer-events:none;
       background:
         radial-gradient(40% 35% at 15% 20%, rgba(47,109,246,.12), transparent 60%),
         radial-gradient(35% 30% at 85% 15%, rgba(236,72,153,.10), transparent 60%),
@@ -73,7 +70,6 @@
 
     .container{max-width:1200px;margin:0 auto;padding:0 1rem}
 
-    /* Header (true glass + scroll state) */
     header{
       position:sticky; top:0; z-index:40;
       background:rgba(255,255,255,.38);
@@ -110,27 +106,20 @@
     .nav-links a:hover{transform:translateY(-1px);border-color:var(--ring);box-shadow:inset 0 1px 0 rgba(255,255,255,.9), 0 16px 36px rgba(47,109,246,.18)}
     .nav-links a:focus-visible{outline:0; box-shadow:0 0 0 3px var(--ring)}
 
-    /* Hero */
     .hero{padding:2rem 0 1rem;text-align:center}
     .hero .hello{
       font-family:"Apple Garamond","Garamond","EB Garamond","Avenir Next",serif !important;
-      font-style:italic;
-      font-weight:700;
+      font-style:italic; font-weight:700;
       font-size:clamp(2.7rem, 4.8vw, 3.3rem);
-      line-height:1.12;
-      letter-spacing:.01em;
+      line-height:1.12; letter-spacing:.01em;
     }
     .role{
-      font-weight:600;
-      letter-spacing:.02em;
-      font-size:1.05rem;
-      margin-top:.2rem;
-      display:block;
+      font-weight:600; letter-spacing:.02em; font-size:1.05rem;
+      margin-top:.2rem; display:block;
     }
     .sep{font-weight:700; opacity:.45; margin:0 .25rem; font-size:.8em}
     .hero .subtitle{margin-top:.6rem;color:#33415c;font-size:1.06rem;font-weight:400}
 
-    /* Highlighter */
     mark.hl,.hl{
       background:linear-gradient(transparent 62%, var(--hi) 0) no-repeat;
       border-radius:4px; padding:0 .03em; color:inherit;
@@ -138,32 +127,21 @@
 
     .quick-actions{margin:1rem auto 0;display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap}
 
-    /* Buttons */
     .btn,
-    .btn:link,
-    .btn:visited,
-    .btn:hover,
-    .btn:active,
-    .btn:focus,
-    .btn:focus-visible{
+    .btn:link,.btn:visited,.btn:hover,.btn:active,.btn:focus,.btn:focus-visible{
       display:inline-flex;align-items:center;gap:.5rem;
       padding:.86rem 1.12rem;border-radius:18px;font-weight:700;font-size:.92rem;
-      background:rgba(255,255,255,.68) !important;
-      color:#0B1220 !important;
-      border:0 !important;
-      outline:0 !important;
-      -webkit-appearance:none; appearance:none;
+      background:rgba(255,255,255,.68) !important; color:#0B1220 !important;
+      border:0 !important; outline:0 !important; -webkit-appearance:none; appearance:none;
       box-shadow: inset 0 1px 0 rgba(255,255,255,.75), 0 10px 24px var(--shadow) !important;
       transition:transform .18s cubic-bezier(.22,.61,.36,1), box-shadow .18s, background .18s;
     }
     .btn:hover{transform:translateY(-1px);box-shadow:inset 0 1px 0 rgba(255,255,255,.9), 0 16px 36px rgba(47,109,246,.18)}
     .btn-primary,.btn-secondary{background:rgba(255,255,255,.68)!important}
 
-    /* Video */
     .video-showcase{margin:1.1rem 0 1.4rem}
     .video-container{
-      position:relative;border-radius:20px;overflow:hidden;
-      background:var(--card);
+      position:relative;border-radius:20px;overflow:hidden;background:var(--card);
       backdrop-filter:blur(20px) saturate(180%); -webkit-backdrop-filter:blur(20px) saturate(180%);
       padding:.5rem; box-shadow:0 20px 60px var(--shadow);
     }
@@ -174,18 +152,15 @@
     }
     .video-container video{width:100%;height:auto;object-fit:contain;border-radius:14px;display:block;background:transparent}
 
-    /* Project section (two-column layout) */
     .project{margin:1.4rem 0}
     .project .container{display:grid;grid-template-columns:1fr;gap:1rem}
-    @media(min-width:900px){.project .container{grid-template-columns:1fr 1.4fr}} /* Project narrower, Exec Summary wider */
+    @media(min-width:900px){.project .container{grid-template-columns:1fr 1.4fr}}
 
     .card{
       background:var(--card);
       backdrop-filter:blur(20px) saturate(180%); -webkit-backdrop-filter:blur(20px) saturate(180%);
-      border-radius:20px; padding:1.1rem 1.1rem;
-      border:1px solid var(--card-border);
-      box-shadow:0 24px 70px var(--shadow);
-      animation:float-in .55s cubic-bezier(.22,.61,.36,1) both;
+      border-radius:20px; padding:1.1rem 1.1rem; border:1px solid var(--card-border);
+      box-shadow:0 24px 70px var(--shadow); animation:float-in .55s cubic-bezier(.22,.61,.36,1) both;
       position:relative; overflow:hidden;
     }
     .card::before{
@@ -199,12 +174,10 @@
     .chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.4rem}
     .chip{font-weight:700;font-size:.82rem;padding:.35rem .6rem;border-radius:999px;background:rgba(255,255,255,.68);border:1px solid rgba(255,255,255,.45)}
 
-    /* Exec Summary spacing */
     .exec p{margin:.6rem 0}
     .exec ul{margin:.35rem 0 .1rem 1.1rem; color:#3a4a67}
     .star-section{margin-top:.85rem}
 
-    /* Tech */
     .tech-stack{margin:1.4rem 0}
     .tech-grid{display:grid;grid-template-columns:1fr;gap:1rem}
     @media(min-width:900px){.tech-grid{grid-template-columns:repeat(3,1fr)}}
@@ -214,53 +187,39 @@
     .tech-card li{padding:.28rem 0;position:relative;padding-left:1.1rem}
     .tech-card li::before{content:"";position:absolute;left:.2rem;top:.78rem;width:6px;height:6px;border-radius:999px;background:rgba(47,109,246,.55)}
 
-    /* Dashboards */
     .dashboards{margin:1.4rem 0}
     .dashboard-grid{display:grid;grid-template-columns:1fr;gap:1rem}
     @media(min-width:900px){.dashboard-grid{grid-template-columns:repeat(3,1fr)}}
     .dashboard-card{overflow:hidden}
     .thumb{
-      height:220px; background:transparent;
-      display:flex; align-items:center; justify-content:center; padding:.25rem;
+      height:220px; background:transparent; display:flex; align-items:center; justify-content:center; padding:.25rem;
     }
     .thumb img{
-      max-width:100%; max-height:100%;
-      width:auto; height:auto; display:block; object-fit:contain;
-      border-radius:16px;
-      box-shadow:0 18px 40px var(--shadow), inset 0 1px 0 rgba(255,255,255,.6);
+      max-width:100%; max-height:100%; width:auto; height:auto; display:block; object-fit:contain;
+      border-radius:16px; box-shadow:0 18px 40px var(--shadow), inset 0 1px 0 rgba(255,255,255,.6);
     }
     .dashboard-card h3{font-size:1.0rem;margin:.55rem 0 .3rem;font-weight:700}
     .dashboard-card p{color:#445678;font-size:.95rem}
 
-    /* About + Contact */
     .about, .contact{margin:1.4rem 0}
 
     footer{padding:1.2rem 0;text-align:center;color:#5a6a86}
     .social-links{display:flex;gap:1rem;justify-content:center;margin-top:.45rem}
     .social-links a,.social-links a:visited{color:#33415c;text-decoration:none}
 
-    /* Motion */
     @keyframes float-in{from{opacity:0;transform:translateY(10px) scale(.995)}to{opacity:1;transform:translateY(0) scale(1)}}
     .card:hover,.tech-card:hover,.dashboard-card:hover{transform:translateY(-3px);transition:transform .25s cubic-bezier(.22,.61,.36,1)}
-
-    /* Reduced motion */
     @media (prefers-reduced-motion: reduce) { * {animation: none !important; transition: none !important;} }
   </style>
 </head>
 <body>
-  <!-- sentinel for header scroll effect -->
   <div id="top-sentinel" aria-hidden="true"></div>
 
   <header id="site-header">
     <div class="container">
       <nav>
         <div class="brand" id="brand">
-          <img id="avatar"
-               src="https://github.com/dariyao.png"
-               alt="Dariya Ostrovska"
-               class="profile-photo"
-               width="40" height="40"
-               decoding="async" loading="eager" />
+          <img id="avatar" src="https://github.com/dariyao.png" alt="Dariya Ostrovska" class="profile-photo" width="40" height="40" decoding="async" loading="eager" />
           <div class="name">Dariya Ostrovska</div>
         </div>
         <ul class="nav-links">
@@ -285,7 +244,7 @@
           <mark class="hl">dbt</mark> <span class="sep">·</span> 
           <mark class="hl">Tableau</mark>
         </strong>
-        <p class="subtitle">Figuring out what your data is trying to tell you—and translating it into English</p>
+        <p class="subtitle">I turn messy data into decisions you can actually trust.</p>
 
         <div class="quick-actions">
           <a class="btn btn-primary" href="https://public.tableau.com/app/profile/dariya.ostrovska/vizzes" target="_blank" rel="noopener noreferrer">View Tableau</a>
@@ -322,15 +281,13 @@
             <span class="chip">Kimball Methodology</span>
           </div>
           <p style="margin-top:.6rem">
-            I rebuilt the classic Northwind OLTP into an analytics-ready warehouse in BigQuery and built 
-            <mark class="hl">self-initiated</mark> executive dashboards in Tableau (dashboarding was <em>not</em> part of the bootcamp).
+            As part of an <strong>Analytics Engineering Bootcamp</strong>, I rebuilt the classic Northwind OLTP into an analytics-ready warehouse in BigQuery and took things one step further by building <strong>self-initiated</strong> executive dashboards in Tableau.
           </p>
           <ul style="margin-top:.5rem;color:#3a4a67; padding-left:1.1rem">
-            <li>Modeled facts &amp; dimensions; produced an <mark class="hl">OBT</mark> for BI.</li>
-            <li>dbt transformations with Jinja macros, documented contracts, and lineage.</li>
-            <li>Data quality: <mark class="hl">tests</mark> (not_null, unique, relationships) + <mark class="hl">source freshness</mark>.</li>
-            <li>Performance: <mark class="hl">partitioning &amp; clustering</mark>, and incremental models where useful.</li>
-            <li>Docs site + exposures linking Tableau dashboards to dbt lineage.</li>
+            <li>Modeled facts and dimensions; produced an <mark class="hl">OBT</mark> for BI.</li>
+            <li>dbt transformations with Jinja macros.</li>
+            <li>Data quality: tests (not_null, unique, relationships).</li>
+            <li>Performance: partitioning and clustering.</li>
           </ul>
 
           <div class="quick-actions" style="margin-top:.8rem">
@@ -339,14 +296,14 @@
             <a class="btn btn-secondary" href="https://github.com/dariyao/analytics-engineering-bootcamp/blob/main/README.md" target="_blank" rel="noopener noreferrer">Technical Deep Dive</a>
           </div>
 
-          <p class="meta" style="margin-top:.9rem">All technical assets (ERD, Source→Target, tests, materializations) are linked directly in the repository README.</p>
+          <p class="meta" style="margin-top:.9rem">All technical assets (ERD, Source→Target, tests, materializations) live in the repository.</p>
         </div>
 
         <!-- Executive Summary (wider) -->
         <div class="card exec">
           <h2 class="section-title">Executive Summary</h2>
 
-          <p class="star-section"><strong>Situation:</strong> Northwind Traders relied on a legacy on-prem MySQL database for both transactions and reporting, causing performance bottlenecks, slow reports, and limited scalability.</p>
+          <p class="star-section"><strong>Situation:</strong> Northwind Traders relied on a legacy on-prem MySQL database for both transactions and reporting, causing <mark class="hl">performance bottlenecks, slow reports, and limited scalability</mark>.</p>
 
           <p class="star-section"><strong>Task:</strong> Modernize the data stack on Google Cloud and deliver an end-to-end dimensional warehouse that reduces OLTP load, accelerates reporting, and enables self-service analytics.</p>
 
@@ -355,12 +312,12 @@
             <li><strong>Requirements:</strong> Identified 4 core processes (Sales Overview, Sales Agent Tracking, Product Inventory, Customer Reporting); profiled data for quality gaps.</li>
             <li><strong>Dimensional modelling:</strong> <mark class="hl">Kimball</mark> bus matrix with clearly declared grains; 4 conformed dimensions (customer, employee, product, date) and 3 fact tables (sales, inventory, purchase_order).</li>
             <li><strong>Architecture:</strong> Data Lake → Staging → Dimensional DWH → <mark class="hl">OBT</mark> in BigQuery; transformations orchestrated with dbt.</li>
-            <li><strong>Data quality:</strong> <mark class="hl">SCD Type 2</mark> where needed, null/duplicate handling in staging, generic <mark class="hl">tests</mark> + source freshness.</li>
-            <li><strong>Performance:</strong> <mark class="hl">Partitioned</mark> facts by date; selective clustering/materializations; incremental models.</li>
-            <li><strong>Visualization:</strong> Designed and built 3 interactive Tableau dashboards (<em>self-initiated</em>, not part of the bootcamp curriculum).</li>
+            <li><strong>Data quality:</strong> SCD Type 2 where needed, null/duplicate handling in staging, generic tests.</li>
+            <li><strong>Performance:</strong> Partitioned facts by date.</li>
+            <li><strong>Visualization:</strong> Designed and built 3 interactive Tableau dashboards (<em>self-initiated</em>).</li>
           </ul>
 
-          <p class="star-section"><strong>Result:</strong> A production-ready warehouse with clean dimensional models, automated dbt transformations, and executive-friendly dashboards—empowering stakeholders to analyze sales performance, monitor inventory health, and understand customer behaviour while removing strain from transactional systems.</p>
+          <p class="star-section"><strong>Result:</strong> A production-ready warehouse with clean dimensional models, automated dbt transformations, and executive-friendly dashboards—<mark class="hl">empowering stakeholders to analyze sales performance, monitor inventory health, and understand customer behaviour while removing strain from transactional systems</mark>.</p>
         </div>
       </div>
     </section>
@@ -375,9 +332,9 @@
               Warehouse (BigQuery)
             </h3>
             <ul>
-              <li>Kimball star schemas with conformed dims &amp; surrogate keys; clear naming.</li>
-              <li>4-layer flow: Data Lake → Staging → DWH → OBT with separation of concerns.</li>
-              <li>Performance/cost: <mark class="hl">partitioning &amp; clustering</mark>; selective materializations.</li>
+              <li>Kimball star schemas with conformed dimensions and surrogate keys; clear naming.</li>
+              <li>4-layer flow: Data Lake → Staging → DWH → OBT with separation of processes.</li>
+              <li>Performance/cost: partitioning and clustering.</li>
             </ul>
           </div>
           <div class="card tech-card">
@@ -386,9 +343,9 @@
               Transformations (dbt)
             </h3>
             <ul>
-              <li>Reusable macros, modular CTE patterns; <mark class="hl">incremental</mark> where appropriate.</li>
-              <li>Tests: not_null, unique, relationships; source freshness; contracts &amp; docs.</li>
-              <li>Consolidated Sales Overview &amp; Agent into a single OBT to reduce redundancy.</li>
+              <li>Reusable macros, modular CTE patterns; incremental where appropriate.</li>
+              <li>Tests: not_null, unique, relationships; contracts and docs.</li>
+              <li>Consolidated sales_agent into sales_overview to reduce redundancy.</li>
             </ul>
           </div>
           <div class="card tech-card">
@@ -397,9 +354,8 @@
               Visualization (Tableau)
             </h3>
             <ul>
-              <li>Clean <mark class="hl">KPI</mark> strip with accessible typography and strong interaction patterns.</li>
+              <li>Clean KPI strip, accessible typography, and strong interaction patterns.</li>
               <li>Executive-ready views for sales, inventory, and customers.</li>
-              <li>Exposures link dashboards back to dbt lineage.</li>
             </ul>
           </div>
         </div>
@@ -416,7 +372,7 @@
             </div>
             <div class="dashboard-card-content">
               <h3>Sales Overview — Executive Pulse</h3>
-              <p><mark class="hl">KPI</mark> strip, interactive sales trend with date picker, agent performance heatmap, and Top-10 products to spotlight growth levers. Key metrics include total sales <strong>($68K)</strong>, <strong>AOV $1,703</strong>, order volume, and agent breakdowns.</p>
+              <p>KPI strip, interactive sales trend with date picker, agent performance heatmap, and Top-10 products to spotlight growth levers. Key metrics include total sales <strong>($68K)</strong>, <strong>AOV $1,703</strong>, order volume, and agent breakdowns.</p>
             </div>
           </div>
           <div class="card dashboard-card">
@@ -425,7 +381,7 @@
             </div>
             <div class="dashboard-card-content">
               <h3>Product Inventory — Stock Health</h3>
-              <p><mark class="hl">KPI</mark> strip, inventory health &amp; coverage, sales by category, and a reorder queue to prioritize replenishment. Tracks on-hand units <strong>(1,641)</strong>, SKU count <strong>(23)</strong>, low-stock items <strong>(19)</strong>, and health distribution.</p>
+              <p>KPI strip, inventory health and coverage, sales by category, and a reorder queue to prioritize replenishment. Tracks on-hand units <strong>(1,641)</strong>, SKU count <strong>(23)</strong>, low-stock items <strong>(19)</strong>, and health distribution.</p>
             </div>
           </div>
           <div class="card dashboard-card">
@@ -434,7 +390,7 @@
             </div>
             <div class="dashboard-card-content">
               <h3>Customer Overview — Growth &amp; Retention</h3>
-              <p><mark class="hl">KPI</mark> strip, sales by employee, order frequency, and a customer map to target outreach and expansion. Includes order completion rate <strong>(93%)</strong>, top customers by volume, geo spread, and employee breakdowns.</p>
+              <p>KPI strip, sales by employee, order frequency, and a customer map to target outreach and expansion. Includes order completion rate <strong>(93%)</strong>, top customers by volume, geo spread, and employee breakdowns.</p>
             </div>
           </div>
         </div>
@@ -446,13 +402,13 @@
       <div class="container">
         <div class="card">
           <h2 class="section-title">About Me</h2>
-          <p>Before analytics engineering, I spent three years as a Senior Editor and Client Strategy Consultant, which taught me how to translate vague requests into solutions people love. Now I apply that same skill to designing <mark class="hl">data warehouses</mark>, building <mark class="hl">dbt pipelines</mark>, and creating dashboards that don’t need explanations.</p>
+          <p>Before analytics engineering, I spent three years as a Senior Editor and Client Strategy Consultant, which taught me how to translate vague requests into solutions people love. Now I apply that same skill to designing data warehouses, building dbt pipelines, and creating dashboards that don’t need explanations.</p>
           <p style="margin-top:.4rem">I’m open to analytics engineering, data engineering, and BI roles across Canada. If you want to talk data—or calisthenics, music journalism, or beauty—send me a message!</p>
         </div>
       </div>
     </section>
 
-    <!-- Contact (separate section, consistent width) -->
+    <!-- Contact -->
     <section class="contact" id="contact">
       <div class="container">
         <div class="card">
@@ -489,7 +445,7 @@
       })
     });
 
-    // Header scroll state (more opaque when scrolled)
+    // Header scroll state
     const header=document.getElementById('site-header');
     const sentinel=document.getElementById('top-sentinel');
     new IntersectionObserver(([e])=>{
