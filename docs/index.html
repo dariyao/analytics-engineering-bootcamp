@@ -202,7 +202,7 @@
     /* Exec Summary spacing */
     .exec p{margin:.6rem 0}
     .exec ul{margin:.35rem 0 .1rem 1.1rem; color:#3a4a67}
-    .star-section{margin-top:.85rem} /* extra spacing before each Situation/Task/Action/Result line */
+    .star-section{margin-top:.85rem}
 
     /* Tech */
     .tech-stack{margin:1.4rem 0}
@@ -267,8 +267,8 @@
           <li><a href="#project">Project</a></li>
           <li><a href="#tech">How it’s Built</a></li>
           <li><a href="#dashboards">Dashboards</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Connect</a></li>
+          <li><a href="#about">About Me</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
     </div>
@@ -285,7 +285,7 @@
           <mark class="hl">dbt</mark> <span class="sep">·</span> 
           <mark class="hl">Tableau</mark>
         </strong>
-        <p class="subtitle">From ambiguous asks to measurable outcomes.</p>
+        <p class="subtitle">Figuring out what your data is trying to tell you—and translating it into English</p>
 
         <div class="quick-actions">
           <a class="btn btn-primary" href="https://public.tableau.com/app/profile/dariya.ostrovska/vizzes" target="_blank" rel="noopener noreferrer">View Tableau</a>
@@ -314,10 +314,10 @@
           <h2 class="section-title">End-to-End Analytics Engineering Project</h2>
           <p class="meta"><em>Building a Scalable Dimensional Data Warehouse for Northwind Traders</em></p>
           <div class="chips" aria-label="Tech stack">
+            <span class="chip">SQL</span>
             <span class="chip">BigQuery</span>
             <span class="chip">dbt</span>
             <span class="chip">Tableau</span>
-            <span class="chip">SQL</span>
             <span class="chip">Dimensional Modelling</span>
             <span class="chip">Kimball Methodology</span>
           </div>
@@ -326,20 +326,20 @@
             <mark class="hl">self-initiated</mark> executive dashboards in Tableau (dashboarding was <em>not</em> part of the bootcamp).
           </p>
           <ul style="margin-top:.5rem;color:#3a4a67; padding-left:1.1rem">
-            <li>Modeled <mark class="hl">facts &amp; dimensions</mark>; produced an OBT for BI.</li>
-            <li>dbt transformations with <mark class="hl">Jinja macros</mark>, documented contracts, and lineage.</li>
-            <li>Data quality: <mark class="hl">not-null/unique/relationship tests</mark> + source freshness.</li>
+            <li>Modeled facts &amp; dimensions; produced an <mark class="hl">OBT</mark> for BI.</li>
+            <li>dbt transformations with Jinja macros, documented contracts, and lineage.</li>
+            <li>Data quality: <mark class="hl">tests</mark> (not_null, unique, relationships) + <mark class="hl">source freshness</mark>.</li>
             <li>Performance: <mark class="hl">partitioning &amp; clustering</mark>, and incremental models where useful.</li>
-            <li>Docs site + <mark class="hl">exposures</mark> linking Tableau dashboards to dbt lineage.</li>
+            <li>Docs site + exposures linking Tableau dashboards to dbt lineage.</li>
           </ul>
 
           <div class="quick-actions" style="margin-top:.8rem">
-            <a class="btn btn-secondary" href="https://github.com/dariyao/analytics-engineering-bootcamp#erd" target="_blank" rel="noopener noreferrer">ERD</a>
-            <a class="btn btn-secondary" href="https://github.com/dariyao/analytics-engineering-bootcamp#bus-matrix" target="_blank" rel="noopener noreferrer">Bus Matrix</a>
-            <a class="btn btn-secondary" href="https://github.com/dariyao/analytics-engineering-bootcamp#technical-deep-dive" target="_blank" rel="noopener noreferrer">Technical Deep Dive</a>
+            <a class="btn btn-secondary" href="https://github.com/dariyao/analytics-engineering-bootcamp/blob/main/docs/erd.png" target="_blank" rel="noopener noreferrer">ERD</a>
+            <a class="btn btn-secondary" href="https://github.com/dariyao/analytics-engineering-bootcamp/blob/main/docs/references/northwind_source_to_target_mapping.xlsx" target="_blank" rel="noopener noreferrer">Source to Target Document</a>
+            <a class="btn btn-secondary" href="https://github.com/dariyao/analytics-engineering-bootcamp/blob/main/README.md" target="_blank" rel="noopener noreferrer">Technical Deep Dive</a>
           </div>
 
-          <p class="meta" style="margin-top:.9rem">All technical assets (ERD, Bus Matrix, tests, materializations) are linked directly in the repository README.</p>
+          <p class="meta" style="margin-top:.9rem">All technical assets (ERD, Source→Target, tests, materializations) are linked directly in the repository README.</p>
         </div>
 
         <!-- Executive Summary (wider) -->
@@ -353,10 +353,10 @@
           <p class="star-section"><strong>Action:</strong></p>
           <ul>
             <li><strong>Requirements:</strong> Identified 4 core processes (Sales Overview, Sales Agent Tracking, Product Inventory, Customer Reporting); profiled data for quality gaps.</li>
-            <li><strong>Dimensional modelling:</strong> Kimball bus matrix, clearly declared grains; 4 conformed dimensions (customer, employee, product, date) and 3 fact tables (sales, inventory, purchase_order).</li>
-            <li><strong>Architecture:</strong> Data Lake → Staging → <strong>Dimensional DWH</strong> → <strong>OBT</strong> in BigQuery; transformations orchestrated with dbt.</li>
-            <li><strong>Data quality:</strong> SCD Type 2 where needed, null/duplicate handling in staging, <strong>generic tests</strong> (not_null, unique, relationships) + <strong>source freshness</strong>.</li>
-            <li><strong>Performance:</strong> Partitioned facts by date; selective clustering/materializations; incremental models.</li>
+            <li><strong>Dimensional modelling:</strong> <mark class="hl">Kimball</mark> bus matrix with clearly declared grains; 4 conformed dimensions (customer, employee, product, date) and 3 fact tables (sales, inventory, purchase_order).</li>
+            <li><strong>Architecture:</strong> Data Lake → Staging → Dimensional DWH → <mark class="hl">OBT</mark> in BigQuery; transformations orchestrated with dbt.</li>
+            <li><strong>Data quality:</strong> <mark class="hl">SCD Type 2</mark> where needed, null/duplicate handling in staging, generic <mark class="hl">tests</mark> + source freshness.</li>
+            <li><strong>Performance:</strong> <mark class="hl">Partitioned</mark> facts by date; selective clustering/materializations; incremental models.</li>
             <li><strong>Visualization:</strong> Designed and built 3 interactive Tableau dashboards (<em>self-initiated</em>, not part of the bootcamp curriculum).</li>
           </ul>
 
@@ -376,7 +376,7 @@
             </h3>
             <ul>
               <li>Kimball star schemas with conformed dims &amp; surrogate keys; clear naming.</li>
-              <li>4-layer flow: <strong>Data Lake → Staging → DWH → OBT</strong> with separation of concerns.</li>
+              <li>4-layer flow: Data Lake → Staging → DWH → OBT with separation of concerns.</li>
               <li>Performance/cost: <mark class="hl">partitioning &amp; clustering</mark>; selective materializations.</li>
             </ul>
           </div>
@@ -386,8 +386,8 @@
               Transformations (dbt)
             </h3>
             <ul>
-              <li>Reusable <mark class="hl">macros</mark>, modular CTE patterns; <mark class="hl">incremental</mark> where appropriate.</li>
-              <li>Tests: <strong>not_null, unique, relationships</strong>; <mark class="hl">source freshness</mark>; contracts &amp; docs.</li>
+              <li>Reusable macros, modular CTE patterns; <mark class="hl">incremental</mark> where appropriate.</li>
+              <li>Tests: not_null, unique, relationships; source freshness; contracts &amp; docs.</li>
               <li>Consolidated Sales Overview &amp; Agent into a single OBT to reduce redundancy.</li>
             </ul>
           </div>
@@ -397,7 +397,7 @@
               Visualization (Tableau)
             </h3>
             <ul>
-              <li>Clean <mark class="hl">KPI strip</mark> with accessible typography; strong interaction patterns.</li>
+              <li>Clean <mark class="hl">KPI</mark> strip with accessible typography and strong interaction patterns.</li>
               <li>Executive-ready views for sales, inventory, and customers.</li>
               <li>Exposures link dashboards back to dbt lineage.</li>
             </ul>
@@ -416,7 +416,7 @@
             </div>
             <div class="dashboard-card-content">
               <h3>Sales Overview — Executive Pulse</h3>
-              <p><mark class="hl">KPI strip</mark>, interactive sales trend with date picker, agent performance heatmap, and <mark class="hl">Top-10 products</mark> to spotlight growth levers. Key metrics include total sales <strong>($68K)</strong>, <strong>AOV $1,703</strong>, order volume, and agent breakdowns.</p>
+              <p><mark class="hl">KPI</mark> strip, interactive sales trend with date picker, agent performance heatmap, and Top-10 products to spotlight growth levers. Key metrics include total sales <strong>($68K)</strong>, <strong>AOV $1,703</strong>, order volume, and agent breakdowns.</p>
             </div>
           </div>
           <div class="card dashboard-card">
@@ -425,7 +425,7 @@
             </div>
             <div class="dashboard-card-content">
               <h3>Product Inventory — Stock Health</h3>
-              <p><mark class="hl">KPI strip</mark>, inventory health &amp; coverage, sales by category, and a <mark class="hl">reorder queue</mark> to prioritize replenishment. Tracks on-hand units <strong>(1,641)</strong>, SKU count <strong>(23)</strong>, low-stock items <strong>(19)</strong>, and health distribution.</p>
+              <p><mark class="hl">KPI</mark> strip, inventory health &amp; coverage, sales by category, and a reorder queue to prioritize replenishment. Tracks on-hand units <strong>(1,641)</strong>, SKU count <strong>(23)</strong>, low-stock items <strong>(19)</strong>, and health distribution.</p>
             </div>
           </div>
           <div class="card dashboard-card">
@@ -434,7 +434,7 @@
             </div>
             <div class="dashboard-card-content">
               <h3>Customer Overview — Growth &amp; Retention</h3>
-              <p><mark class="hl">KPI strip</mark>, sales by employee, <mark class="hl">order frequency</mark>, and a <mark class="hl">customer map</mark> to target outreach and expansion. Includes order completion rate <strong>(93%)</strong>, top customers by volume, geo spread, and employee breakdowns.</p>
+              <p><mark class="hl">KPI</mark> strip, sales by employee, order frequency, and a customer map to target outreach and expansion. Includes order completion rate <strong>(93%)</strong>, top customers by volume, geo spread, and employee breakdowns.</p>
             </div>
           </div>
         </div>
@@ -445,9 +445,9 @@
     <section class="about" id="about">
       <div class="container">
         <div class="card">
-          <h2 class="section-title">About</h2>
-          <p><strong>English-grad turned analytics engineer.</strong> I translate messy stakeholder asks into clear <mark class="hl">data requirements</mark> and deliverables. Tooling: <strong>SQL, dbt, BigQuery, Tableau</strong>.</p>
-          <p style="margin-top:.4rem">Previously a Senior Editor/Strategy Consultant—skills I now apply to scoping, documenting, and communicating data work with precision.</p>
+          <h2 class="section-title">About Me</h2>
+          <p>Before analytics engineering, I spent three years as a Senior Editor and Client Strategy Consultant, which taught me how to translate vague requests into solutions people love. Now I apply that same skill to designing <mark class="hl">data warehouses</mark>, building <mark class="hl">dbt pipelines</mark>, and creating dashboards that don’t need explanations.</p>
+          <p style="margin-top:.4rem">I’m open to analytics engineering, data engineering, and BI roles across Canada. If you want to talk data—or calisthenics, music journalism, or beauty—send me a message!</p>
         </div>
       </div>
     </section>
@@ -456,7 +456,7 @@
     <section class="contact" id="contact">
       <div class="container">
         <div class="card">
-          <h2 class="section-title" style="text-align:center">Let’s connect!</h2>
+          <h2 class="section-title" style="text-align:center">Let’s Connect</h2>
           <div class="quick-actions" style="margin-top:.55rem">
             <a class="btn btn-secondary" href="https://www.linkedin.com/in/dariyaostrovska" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             <a class="btn btn-secondary" href="https://github.com/dariyao" target="_blank" rel="noopener noreferrer">GitHub</a>
