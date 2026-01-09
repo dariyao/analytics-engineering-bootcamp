@@ -1,0 +1,13 @@
+# dbt build artifacts
+ae_bootcamp/target/
+ae_bootcamp/logs/
+ae_bootcamp/dbt_packages/
+
+# Python virtual environment
+.venv/
+
+# macOS
+.DS_Store
+
+# repo-level logs
+logs/
